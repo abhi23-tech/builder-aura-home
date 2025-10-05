@@ -22,6 +22,8 @@ export default function Listings() {
   const [price, setPrice] = useState<number[]>([Number(query.get("min")) || 0, Number(query.get("max")) || 1000]);
   const [localSearch, setLocalSearch] = useState<string>(query.get("q") ?? "");
 
+  const { products } = useMarketplace();
+
   const filtered = products.filter((p) => {
     const matchesType = type === "all" || p.type === type;
     const matchesCategory = category === "all" || p.category === category;
