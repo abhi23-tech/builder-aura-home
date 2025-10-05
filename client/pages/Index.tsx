@@ -3,13 +3,15 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CategoryPill } from "@/components/marketplace/CategoryPill";
 import { ProductCard } from "@/components/marketplace/ProductCard";
-import { categories, products } from "@/lib/data";
+import { categories } from "@/lib/data";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { useMarketplace } from "@/lib/marketplace";
 
 export default function Index() {
   const [homeQuery, setHomeQuery] = useState("");
   const navigate = useNavigate();
+  const { products } = useMarketplace();
 
   const featured = products.slice(0, 6);
   const topDeals = products.filter((p) => p.isDeal).slice(0, 4);
