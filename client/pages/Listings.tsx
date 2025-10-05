@@ -5,7 +5,8 @@ import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/marketplace/ProductCard";
-import { categories, products } from "@/lib/data";
+import { categories } from "@/lib/data";
+import { useMarketplace } from "@/lib/marketplace";
 
 function useQuery() {
   const { search } = useLocation();
