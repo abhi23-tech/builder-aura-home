@@ -35,7 +35,7 @@ export function ProductCard({ product, className }: { product: Product; classNam
           </div>
           <h3 className="line-clamp-1 font-medium">{product.title}</h3>
           <div className="flex items-center justify-between">
-            <div className="text-lg font-semibold">${product.price}</div>
+            <div className="text-lg font-semibold">₹{product.price}</div>
             <div className="text-xs text-muted-foreground">{product.category}</div>
           </div>
         </div>
