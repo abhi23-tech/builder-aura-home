@@ -3,11 +3,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Plus, User2, Menu, Search } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useMarketplace } from "@/lib/marketplace";
 
 export function Header() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const { user, logout } = useMarketplace();
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -62,10 +64,19 @@ export function Header() {
             <ShoppingCart className="h-5 w-5" />
             <span className="hidden sm:inline">Cart</span>
           </Link>
-          <Link to="/profile" className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground">
-            <User2 className="h-5 w-5" />
-            <span className="hidden sm:inline">Profile</span>
-          </Link>
+          {user && user.name ? (
+            <div className="inline-flex items-center gap-2">
+              <Link to="/profile" className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground">
+                <User2 className="h-5 w-5" />
+                <span className="hidden sm:inline">{user.name}</span>
+              </Link>
+              <Button variant="ghost" size="sm" onClick={() => { logout(); navigate('/'); }}>Logout</Button>
+            </div>
+          ) : (
+            <Link to="/login">
+              <Button variant="secondary" size="sm">Sign in</Button>
+            </Link>
+          )}
         </div>
       </div>
       <div className="md:hidden border-t">
