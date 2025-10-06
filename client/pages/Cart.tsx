@@ -30,7 +30,7 @@ export default function Cart() {
                 <img src={it.image} alt={it.title} className="h-20 w-28 object-cover rounded" />
                 <div className="flex-1">
                   <div className="font-medium">{it.title}</div>
-                  <div className="text-muted-foreground">${it.price} • {it.category}</div>
+                  <div className="text-muted-foreground">₹{it.price} • {it.category}</div>
                 </div>
                 <div className="flex flex-col items-end gap-2">
                   <div className="font-semibold">${it.price}</div>
