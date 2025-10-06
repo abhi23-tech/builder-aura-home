@@ -30,7 +30,7 @@ export function Header() {
             <Menu className="h-5 w-5" />
           </button>
           <Link to="/" className="font-extrabold text-xl tracking-tight text-foreground">
-            <span className="text-primary">Campus</span>Xchange
+            <span className="text-primary">Campus</span>Mart
           </Link>
           <nav className="hidden md:flex items-center gap-6 ml-6 text-sm">
             <Link to="/listings" className="text-foreground/70 hover:text-foreground">Browse</Link>
