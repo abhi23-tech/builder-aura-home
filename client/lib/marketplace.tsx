@@ -89,6 +89,29 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
 
   const getProduct = (id: string) => products.find((p) => p.id === id);
 
+  const login = (payload: { name: string; email?: string }) => {
+    const newUser: User = {
+      id: payload.email ?? `u_${Date.now()}`,
+      name: payload.name,
+      email: payload.email,
+      listings: user.listings,
+      transactions: user.transactions,
+    };
+    setUser(newUser);
+  };
+
+  const logout = () => {
+    const defaultUser: User = {
+      id: "u1",
+      name: "Student User",
+      email: undefined,
+      listings: user.listings,
+      transactions: user.transactions,
+    };
+    setUser(defaultUser);
+    setCart([]);
+  };
+
   const addToCart = (id: string) => {
     const p = getProduct(id);
     if (!p) return;
@@ -130,7 +153,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
 
   return (
     <MarketplaceContext.Provider
-      value={{ products, addItem, getProduct, user, addToCart, removeFromCart, cart, checkout, submitContact }}
+      value={{ products, addItem, getProduct, user, login, logout, addToCart, removeFromCart, cart, checkout, submitContact }}
     >
       {children}
     </MarketplaceContext.Provider>
