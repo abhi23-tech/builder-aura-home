@@ -19,7 +19,7 @@ export default function Listings() {
 
   const [type, setType] = useState<string>(query.get("type") ?? "all");
   const [category, setCategory] = useState<string>(query.get("category") ?? "all");
-  const [price, setPrice] = useState<number[]>([Number(query.get("min")) || 0, Number(query.get("max")) || 1000]);
+  const [price, setPrice] = useState<number[]>([Number(query.get("min")) || 0, Number(query.get("max")) || 100000]);
   const [localSearch, setLocalSearch] = useState<string>(query.get("q") ?? "");
 
   const { products } = useMarketplace();
