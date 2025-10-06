@@ -26,7 +26,7 @@ export default function ProductDetail() {
       <div>
         <h1 className="text-2xl font-bold">{product.title}</h1>
         <div className="mt-2 text-muted-foreground">{product.category} • {product.type}</div>
-        <div className="mt-4 text-3xl font-extrabold">${product.price}</div>
+        <div className="mt-4 text-3xl font-extrabold">₹{product.price}</div>
         <p className="mt-4 text-muted-foreground">{product?.title} — detailed description will go here.</p>
 
         <div className="mt-6 flex items-center gap-3">
