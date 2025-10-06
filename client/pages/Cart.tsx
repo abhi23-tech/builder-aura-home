@@ -44,7 +44,7 @@ export default function Cart() {
         <aside className="rounded border p-4">
           <div className="flex items-center justify-between">
             <div className="text-sm text-muted-foreground">Subtotal</div>
-            <div className="font-semibold">${total}</div>
+            <div className="font-semibold">₹{total}</div>
           </div>
           <div className="mt-4">
             <Button className="w-full" onClick={onCheckout}>Checkout</Button>
