@@ -31,7 +31,7 @@ export function Footer() {
       </div>
       <div className="border-t">
         <div className="container mx-auto py-4 flex items-center justify-between text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} CampusXchange</p>
+          <p>© {new Date().getFullYear()} CampusMart</p>
           <div className="flex items-center gap-4">
             <a href="#" onClick={(e)=>e.preventDefault()}>Terms</a>
             <a href="#" onClick={(e)=>e.preventDefault()}>Privacy</a>
