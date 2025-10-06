@@ -22,6 +22,8 @@ type MarketplaceContextValue = {
   addItem: (p: Omit<Product, "id">) => Product;
   getProduct: (id: string) => Product | undefined;
   user: User;
+  login: (payload: { name: string; email?: string }) => void;
+  logout: () => void;
   addToCart: (id: string) => void;
   removeFromCart: (id: string) => void;
   cart: Product[];
