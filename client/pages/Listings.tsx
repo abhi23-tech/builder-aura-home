@@ -86,13 +86,13 @@ export default function Listings() {
           </Select>
         </div>
         <div>
-          <div className="text-sm font-semibold mb-2">Price range (${price[0]} - ${price[1]})</div>
+          <div className="text-sm font-semibold mb-2">Price range (₹{price[0]} - ₹{price[1]})</div>
           <Slider
             value={price}
             onValueChange={setPrice}
             min={0}
-            max={1000}
-            step={5}
+            max={100000}
+            step={50}
             className="mt-4"
           />
         </div>
