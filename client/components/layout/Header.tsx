@@ -28,19 +28,38 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <button className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground/70 hover:text-foreground" aria-label="Open menu">
+          <button
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground/70 hover:text-foreground"
+            aria-label="Open menu"
+          >
             <Menu className="h-5 w-5" />
           </button>
-          <Link to="/" className="font-extrabold text-xl tracking-tight text-foreground">
+          <Link
+            to="/"
+            className="font-extrabold text-xl tracking-tight text-foreground"
+          >
             <span className="text-primary">Campus</span>Mart
           </Link>
           <nav className="hidden md:flex items-center gap-6 ml-6 text-sm">
-            <Link to="/listings" className="text-foreground/70 hover:text-foreground">Browse</Link>
-            <Link to="/contact" className="text-foreground/70 hover:text-foreground">Support</Link>
+            <Link
+              to="/listings"
+              className="text-foreground/70 hover:text-foreground"
+            >
+              Browse
+            </Link>
+            <Link
+              to="/contact"
+              className="text-foreground/70 hover:text-foreground"
+            >
+              Support
+            </Link>
           </nav>
         </div>
 
-        <form onSubmit={onSubmit} className="flex-1 hidden md:flex items-center max-w-2xl">
+        <form
+          onSubmit={onSubmit}
+          className="flex-1 hidden md:flex items-center max-w-2xl"
+        >
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -60,21 +79,38 @@ export function Header() {
               <span className="hidden sm:inline">List item</span>
             </Button>
           </Link>
-          <Link to="/cart" className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground">
+          <Link
+            to="/cart"
+            className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground"
+          >
             <ShoppingCart className="h-5 w-5" />
             <span className="hidden sm:inline">Cart</span>
           </Link>
           {user && user.name ? (
             <div className="inline-flex items-center gap-2">
-              <Link to="/profile" className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground">
+              <Link
+                to="/profile"
+                className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground"
+              >
                 <User2 className="h-5 w-5" />
                 <span className="hidden sm:inline">{user.name}</span>
               </Link>
-              <Button variant="ghost" size="sm" onClick={() => { logout(); navigate('/'); }}>Logout</Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  logout();
+                  navigate("/");
+                }}
+              >
+                Logout
+              </Button>
             </div>
           ) : (
             <Link to="/login">
-              <Button variant="secondary" size="sm">Sign in</Button>
+              <Button variant="secondary" size="sm">
+                Sign in
+              </Button>
             </Link>
           )}
         </div>

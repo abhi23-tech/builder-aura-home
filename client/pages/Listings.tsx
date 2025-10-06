@@ -1,6 +1,12 @@
 import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,8 +24,13 @@ export default function Listings() {
   const navigate = useNavigate();
 
   const [type, setType] = useState<string>(query.get("type") ?? "all");
-  const [category, setCategory] = useState<string>(query.get("category") ?? "all");
-  const [price, setPrice] = useState<number[]>([Number(query.get("min")) || 0, Number(query.get("max")) || 100000]);
+  const [category, setCategory] = useState<string>(
+    query.get("category") ?? "all",
+  );
+  const [price, setPrice] = useState<number[]>([
+    Number(query.get("min")) || 0,
+    Number(query.get("max")) || 100000,
+  ]);
   const [localSearch, setLocalSearch] = useState<string>(query.get("q") ?? "");
 
   const { products } = useMarketplace();
@@ -29,7 +40,8 @@ export default function Listings() {
     const matchesCategory = category === "all" || p.category === category;
     const matchesPrice = p.price >= price[0] && p.price <= price[1];
     const q = (query.get("q") ?? "").toLowerCase();
-    const matchesSearch = !q || [p.title, p.category].join(" ").toLowerCase().includes(q);
+    const matchesSearch =
+      !q || [p.title, p.category].join(" ").toLowerCase().includes(q);
     return matchesType && matchesCategory && matchesPrice && matchesSearch;
   });
 
@@ -80,13 +92,17 @@ export default function Listings() {
             <SelectContent>
               <SelectItem value="all">All</SelectItem>
               {categories.map((c) => (
-                <SelectItem key={c} value={c}>{c}</SelectItem>
+                <SelectItem key={c} value={c}>
+                  {c}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
         <div>
-          <div className="text-sm font-semibold mb-2">Price range (₹{price[0]} - ₹{price[1]})</div>
+          <div className="text-sm font-semibold mb-2">
+            Price range (₹{price[0]} - ₹{price[1]})
+          </div>
           <Slider
             value={price}
             onValueChange={setPrice}
@@ -96,7 +112,9 @@ export default function Listings() {
             className="mt-4"
           />
         </div>
-        <Button className="w-full" onClick={applyFilters}>Apply filters</Button>
+        <Button className="w-full" onClick={applyFilters}>
+          Apply filters
+        </Button>
       </aside>
 
       {/* Results */}
@@ -104,9 +122,13 @@ export default function Listings() {
         <div className="flex items-baseline justify-between gap-4">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold">Browse items</h1>
-            <p className="text-muted-foreground">Find the best deals from students</p>
+            <p className="text-muted-foreground">
+              Find the best deals from students
+            </p>
           </div>
-          <div className="text-sm text-muted-foreground">{filtered.length} results</div>
+          <div className="text-sm text-muted-foreground">
+            {filtered.length} results
+          </div>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((p) => (

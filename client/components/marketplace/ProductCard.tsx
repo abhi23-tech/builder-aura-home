@@ -15,7 +15,13 @@ export type Product = {
   location?: string;
 };
 
-export function ProductCard({ product, className }: { product: Product; className?: string }) {
+export function ProductCard({
+  product,
+  className,
+}: {
+  product: Product;
+  className?: string;
+}) {
   return (
     <Card className={cn("overflow-hidden group", className)}>
       <Link to={`/product/${product.id}`} className="block">
@@ -29,14 +35,22 @@ export function ProductCard({ product, className }: { product: Product; classNam
         </div>
         <div className="p-3 space-y-2">
           <div className="flex items-center gap-2 text-xs">
-            <Badge variant="secondary" className="capitalize">{product.type}</Badge>
-            {product.isDeal && <Badge className="bg-emerald-500 text-white">Top deal</Badge>}
-            {product.isTrending && <Badge className="bg-pink-500 text-white">Trending</Badge>}
+            <Badge variant="secondary" className="capitalize">
+              {product.type}
+            </Badge>
+            {product.isDeal && (
+              <Badge className="bg-emerald-500 text-white">Top deal</Badge>
+            )}
+            {product.isTrending && (
+              <Badge className="bg-pink-500 text-white">Trending</Badge>
+            )}
           </div>
           <h3 className="line-clamp-1 font-medium">{product.title}</h3>
           <div className="flex items-center justify-between">
             <div className="text-lg font-semibold">₹{product.price}</div>
-            <div className="text-xs text-muted-foreground">{product.category}</div>
+            <div className="text-xs text-muted-foreground">
+              {product.category}
+            </div>
           </div>
         </div>
       </Link>

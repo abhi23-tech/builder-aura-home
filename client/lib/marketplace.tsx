@@ -28,12 +28,22 @@ type MarketplaceContextValue = {
   removeFromCart: (id: string) => void;
   cart: Product[];
   checkout: () => Transaction;
-  submitContact: (payload: { name: string; email: string; message: string }) => void;
+  submitContact: (payload: {
+    name: string;
+    email: string;
+    message: string;
+  }) => void;
 };
 
-const MarketplaceContext = createContext<MarketplaceContextValue | undefined>(undefined);
+const MarketplaceContext = createContext<MarketplaceContextValue | undefined>(
+  undefined,
+);
 
-export function MarketplaceProvider({ children }: { children: React.ReactNode }) {
+export function MarketplaceProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [products, setProducts] = useState<Product[]>(() => {
     try {
       const raw = localStorage.getItem("mx_products");
@@ -141,7 +151,11 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
     return tx;
   };
 
-  const submitContact = (payload: { name: string; email: string; message: string }) => {
+  const submitContact = (payload: {
+    name: string;
+    email: string;
+    message: string;
+  }) => {
     try {
       const existing = JSON.parse(localStorage.getItem("mx_contacts") || "[]");
       existing.unshift({ ...payload, date: new Date().toISOString() });
@@ -153,7 +167,19 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
 
   return (
     <MarketplaceContext.Provider
-      value={{ products, addItem, getProduct, user, login, logout, addToCart, removeFromCart, cart, checkout, submitContact }}
+      value={{
+        products,
+        addItem,
+        getProduct,
+        user,
+        login,
+        logout,
+        addToCart,
+        removeFromCart,
+        cart,
+        checkout,
+        submitContact,
+      }}
     >
       {children}
     </MarketplaceContext.Provider>
@@ -162,6 +188,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
 
 export function useMarketplace() {
   const ctx = useContext(MarketplaceContext);
-  if (!ctx) throw new Error("useMarketplace must be used within MarketplaceProvider");
+  if (!ctx)
+    throw new Error("useMarketplace must be used within MarketplaceProvider");
   return ctx;
 }
