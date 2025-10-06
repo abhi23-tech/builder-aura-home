@@ -19,7 +19,7 @@ export default function Profile() {
               <div key={l.id} className="rounded-lg border p-3">
                 <img src={l.image} alt={l.title} className="h-40 w-full object-cover rounded" />
                 <div className="mt-2 font-medium">{l.title}</div>
-                <div className="text-muted-foreground">${l.price} • {l.category}</div>
+                <div className="text-muted-foreground">₹{l.price} • {l.category}</div>
                 <Link to={`/product/${l.id}`} className="text-primary underline mt-2 inline-block">View</Link>
               </div>
             ))}
