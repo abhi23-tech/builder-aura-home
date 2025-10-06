@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import AddItem from "./pages/AddItem";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import { MarketplaceProvider } from "@/lib/marketplace";
