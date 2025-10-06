@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t bg-white">
       <div className="container mx-auto py-10 grid gap-8 md:grid-cols-4 text-sm">
         <div>
-          <div className="font-extrabold text-lg"><span className="text-primary">Campus</span>Xchange</div>
+          <div className="font-extrabold text-lg"><span className="text-primary">Campus</span>Mart</div>
           <p className="mt-2 text-muted-foreground">Buy, sell, and rent with students on your campus.</p>
         </div>
         <div>
