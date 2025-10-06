@@ -37,7 +37,7 @@ export default function Profile() {
               <div key={t.id} className="rounded-lg border p-4">
                 <div className="flex items-center justify-between">
                   <div className="font-medium">Transaction • {new Date(t.date).toLocaleString()}</div>
-                  <div className="font-semibold">${t.total}</div>
+                  <div className="font-semibold">₹{t.total}</div>
                 </div>
                 <div className="mt-2 text-sm text-muted-foreground">{t.items.length} items</div>
               </div>
