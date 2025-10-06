@@ -12,7 +12,7 @@ export default function Cart() {
       return;
     }
     const tx = checkout();
-    alert(`Purchase complete — $${tx.total}`);
+    alert(`Purchase complete — ₹${tx.total}`);
   };
 
   return (
